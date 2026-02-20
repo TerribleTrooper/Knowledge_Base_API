@@ -1,0 +1,21 @@
+# This is a generated file. Not intended for manual editing.
+version: "3.8"
+services:
+  api:
+    build:
+      context: "/Users/timad/Documents/Knowledge_Base_API/Knowledge_Base_API"
+      dockerfile: "Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/Knowledge_Base_API.dll"
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "knowledge_base_api:dev"
+    ports: []
+    volumes:
+    - "/Users/timad/Documents/Knowledge_Base_API/Knowledge_Base_API:/app:rw"
+    - "/Users/timad/Documents/Knowledge_Base_API:/src:rw"
+    - "/Users/timad/.nuget/packages:/home/app/.nuget/packages"
+    working_dir: "/app"

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/Knowledge_Base_API.props" />
+</Project>

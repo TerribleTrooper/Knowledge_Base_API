@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Knowledge_Base_API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5e5430b8613e59325ae0d92db8cc16f10b3467e6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c09731b3f575014719f0d771081ae50e32de8914")]
 [assembly: System.Reflection.AssemblyProductAttribute("Knowledge_Base_API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Knowledge_Base_API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

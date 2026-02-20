@@ -1,0 +1,34 @@
+﻿services:
+  knowledge_base_api:
+    image: knowledge_base_api
+    build:
+      context: .
+      dockerfile: Knowledge_Base_API/Dockerfile
+      
+  postgres:
+    image: postgres:15
+    container_name: knowledge_base_db
+    environment:
+      POSTGRES_DB: notes
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
+
+  knowledge_base_api-1:
+    image: knowledge_base_api-1
+    build:
+      context: .
+      dockerfile: Knowledge_Base_API/Dockerfile
+
+  knowledge_base_api-1:
+    image: knowledge_base_api-1
+    build:
+      context: .
+      dockerfile: Knowledge_Base_API/Dockerfile
+

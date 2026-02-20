@@ -1,23 +1,23 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
-USER $APP_UID
+﻿# Runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
 EXPOSE 8080
-EXPOSE 8081
 
+# Build
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Knowledge_Base_API/Knowledge_Base_API.csproj", "Knowledge_Base_API/"]
-RUN dotnet restore "Knowledge_Base_API/Knowledge_Base_API.csproj"
+
+# Copy everything
 COPY . .
-WORKDIR "/src/Knowledge_Base_API"
-RUN dotnet build "./Knowledge_Base_API.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
-FROM build AS publish
-ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./Knowledge_Base_API.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+# Restore
+RUN dotnet restore
 
+# Publish
+RUN dotnet publish -c Release -o /app/publish
+
+# Final
 FROM base AS final
 WORKDIR /app
-COPY --from=publish /app/publish .
+COPY --from=build /app/publish .
 ENTRYPOINT ["dotnet", "Knowledge_Base_API.dll"]
